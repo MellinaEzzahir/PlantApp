@@ -22,10 +22,26 @@ export default StyleSheet.create({
         borderTopWidth: 2,
         borderTopColor: 'lightgray',
     },
-    
+
     tabBarLabel: {
         fontSize: 12,
         fontWeight: 'bold',
-    }
+    },
+
+    customHeader: {
+        height: 70,
+        paddingTop: 25,
+        paddingHorizontal: 15,
+        backgroundColor: theme.colors.secondary,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+
+    customHeaderTitle: {
+        fontSize: 18,
+        color: 'white',
+        fontWeight: 'bold',
+    },
 
 });

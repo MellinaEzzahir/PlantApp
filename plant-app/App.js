@@ -11,6 +11,8 @@ import MyPlants from './screens/my-plants';
 import Settings from './screens/settings';
 import Calendar from './screens/calendar';
 
+import CustomHeader from './components/custom-header';
+
 import theme from './styles/theme'
 
 const Stack = createNativeStackNavigator();
@@ -42,11 +44,11 @@ export default function App() {
           tabBarInactiveTintColor: theme.colors.primary,
         })}>
         <Tab.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }} />
-        <Tab.Screen name="MyPlants" component={MyPlants} options={{ tabBarLabel: 'My Plants', headerTitle: 'My Plants' }} />
-        <Tab.Screen name="Calendar" component={Calendar} />
-        <Tab.Screen name="Settings" component={Settings} />
+        <Tab.Screen name="MyPlants" component={MyPlants} options={{ tabBarLabel: 'My Plants', header: () => <CustomHeader title="My Plants"/>}} />
+        <Tab.Screen name="Calendar" component={Calendar} options={{ header: () => <CustomHeader title="Calendar"/>}} />
+        <Tab.Screen name="Settings" component={Settings} options={{ header: () => <CustomHeader title="Settings"/>}} />
       </Tab.Navigator>
-    </NavigationContainer>
+    </NavigationContainer> 
   );
 }
 
