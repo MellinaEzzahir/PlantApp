@@ -4,11 +4,11 @@ import { View, Text, Image, Pressable } from "react-native";
 
 // import local components here
 
-export default function Dashboard({navigation}) {
+export default function Settings(props) {
   return (
     <View 
-      style={StyleSheet.screenContainer}>
-        <Text>This is the dashboard</Text>
+      style={StyleSheet.container}>
+      
     </View>
   );
 }
