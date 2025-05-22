@@ -4,10 +4,10 @@ import theme from './theme';
 export default StyleSheet.create({
 
     screenContainer: {
+        flex: 1,
         margin: 40,
         alignItems: 'center',
         justifyContent: 'center',
-
     },
 
     container: {
@@ -43,5 +43,23 @@ export default StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
     },
+
+    plantCard: {
+        height: 150,
+        width: '100%',
+        margin: 10,
+        backgroundColor: theme.colors.primary,
+    },
+
+    myPlants: {
+        width: '100%',
+    },
+
+    plantCardName: {
+        fontSize: 12,
+        color: 'white',
+        fontWeight: 'bold',
+        height: 20,
+    }
 
 });
