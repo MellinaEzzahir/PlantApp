@@ -10,7 +10,7 @@ export default function Settings(props) {
 
     return (
         <View
-            style={StyleSheet.container}>
+            style={StyleSheet.screenContainer}>
             <Switch
                 trackColor={{ false: '#767577', true: '#81b0ff' }}
                 thumbColor={switchIsEnabled ? '#f5dd4b' : '#f4f3f4'}

@@ -7,7 +7,7 @@ import { View, Text, Image, Pressable } from "react-native";
 export default function Calendar(props) {
   return (
     <View 
-      style={StyleSheet.container}>
+      style={StyleSheet.screenContainer}>
       
     </View>
   );
