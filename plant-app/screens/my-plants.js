@@ -13,7 +13,6 @@ export default function MyPlants() {
 
     return (
         <View style={StyleSheet.screenContainer}>
-            {console.log("plants:", plants)}
             <Text>My plants</Text>
             <FlatList
                 data={plants}

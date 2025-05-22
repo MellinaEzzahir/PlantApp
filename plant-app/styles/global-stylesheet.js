@@ -12,7 +12,6 @@ export default StyleSheet.create({
 
     container: {
         flex: 1,
-
         backgroundColor: theme.colors.background,
     },
 
@@ -39,16 +38,23 @@ export default StyleSheet.create({
     },
 
     customHeaderTitle: {
-        fontSize: 18,
+        fontSize: 24,
         color: 'white',
         fontWeight: 'bold',
     },
 
     plantCard: {
-        height: 150,
-        width: '100%',
-        margin: 10,
+        width: '95%',
+        marginBottom: 12,
+        marginLeft: 10,
         backgroundColor: theme.colors.primary,
+        borderRadius: 16,
+        padding: 16,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+        elevation: 2,
     },
 
     myPlants: {
@@ -56,10 +62,26 @@ export default StyleSheet.create({
     },
 
     plantCardName: {
-        fontSize: 12,
+        fontSize: 18,
         color: 'white',
         fontWeight: 'bold',
-        height: 20,
+    },
+
+    plantCardType: {
+        fontSize: 14,
+        marginBottom: 4,
+    },
+
+    plantCardWatering: {
+
+    },
+
+    plantCardSunlight: {
+
+    },
+
+    plantCardNotes: {
+
     }
 
 });

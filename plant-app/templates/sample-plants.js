@@ -4,7 +4,7 @@ const plants = [
     name: 'Aloe Vera',
     type: 'Succulent',
     wateringFrequency: 14, // every 2 weeks
-    sunlight: 'Bright indirect',
+    sunlight: 3,
     notes: 'Let soil dry completely between waterings.',
   },
   {
@@ -12,7 +12,7 @@ const plants = [
     name: 'Peace Lily',
     type: 'Indoor',
     wateringFrequency: 7, // weekly
-    sunlight: 'Low to medium',
+    sunlight: 2,
     notes: 'Droops when thirsty — easy to tell!',
   },
   {
@@ -20,7 +20,7 @@ const plants = [
     name: 'Basil',
     type: 'Herb',
     wateringFrequency: 2,
-    sunlight: 'Full sun',
+    sunlight: 5,
     notes: 'Water often and harvest regularly to encourage growth.',
   },
   {
@@ -28,7 +28,7 @@ const plants = [
     name: 'Snake Plant',
     type: 'Succulent',
     wateringFrequency: 10,
-    sunlight: 'Low to bright indirect',
+    sunlight: 3,
     notes: 'Very low maintenance and tolerant of neglect.',
   },
   {
@@ -36,7 +36,7 @@ const plants = [
     name: 'Fiddle Leaf Fig',
     type: 'Indoor Tree',
     wateringFrequency: 6,
-    sunlight: 'Bright indirect',
+    sunlight: 4,
     notes: 'Avoid moving around — doesn’t like change!',
   },
 ];
