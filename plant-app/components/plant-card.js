@@ -22,11 +22,29 @@ export default function PlantCard({ plant }) {
                 return "idk think theres an error somewhere";
         }
     }
+
+    const wateringText = (plant) => {
+        const wt = plant.wateringFrequency;
+        if (wt % 7 == 0) {
+            if (wt / 7 == 1) {
+                return "Water weekly";
+            } else {
+                return "Water every " + wt / 7 + " weeks";
+            }
+        } else {
+            if (wt == 1) {
+                return "Water daily";
+            } else {
+                return "Water every " + wt + " days";
+            }
+        }
+    }
+
     return (
         <View style={StyleSheet.plantCard}>
             <Text style={StyleSheet.plantCardName}>{plant.name}</Text>
             <Text style={StyleSheet.plantCardType}>{plant.type}</Text>
-            <Text style={StyleSheet.plantCardWatering}>Water every {plant.wateringFrequency} days</Text>
+            <Text style={StyleSheet.plantCardWatering}>{wateringText(plant)}</Text>
             <Text style={StyleSheet.plantCardSunlight}>{sunEmoji(plant)}</Text>
             <Text style={StyleSheet.plantCardNotes}>{plant.notes}</Text>
         </View>
