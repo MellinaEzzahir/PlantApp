@@ -2,16 +2,11 @@ import { StyleSheet } from 'react-native';
 import theme from './theme';
 
 export default StyleSheet.create({
-
     screenContainer: {
         flex: 1,
         margin: 40,
         alignItems: 'center',
         justifyContent: 'center',
-    },
-
-    container: {
-        flex: 1,
         backgroundColor: theme.colors.background,
     },
 
@@ -43,6 +38,10 @@ export default StyleSheet.create({
         fontWeight: 'bold',
     },
 
+    myPlants: {
+        width: '100%',
+    },
+
     plantCard: {
         width: '95%',
         marginBottom: 12,
@@ -57,10 +56,6 @@ export default StyleSheet.create({
         elevation: 2,
     },
 
-    myPlants: {
-        width: '100%',
-    },
-
     plantCardName: {
         fontSize: 18,
         color: 'white',
@@ -72,16 +67,76 @@ export default StyleSheet.create({
         marginBottom: 4,
     },
 
-    plantCardWatering: {
+    plantCardWatering: {},
+    plantCardSunlight: {},
+    plantCardNotes: {},
 
+    loginTitle: {
+        fontSize: 26,
+        fontWeight: 'bold',
+        marginBottom: 24,
+        color: theme.colors.secondary,
+        textAlign: 'center',
     },
 
-    plantCardSunlight: {
-
+    loginUsername: {
+        width: '100%',
+        padding: 14,
+        marginBottom: 16,
+        borderRadius: 12,
+        borderWidth: 1.5,
+        borderColor: theme.colors.primary,
+        backgroundColor: '#fff',
+        fontSize: 16,
+        color: theme.colors.text,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.05,
+        shadowRadius: 2,
+        elevation: 1,
     },
 
-    plantCardNotes: {
+    loginPassword: {
+        width: '100%',
+        padding: 14,
+        marginBottom: 24,
+        borderRadius: 12,
+        borderWidth: 1.5,
+        borderColor: theme.colors.primary,
+        backgroundColor: '#fff',
+        fontSize: 16,
+        color: theme.colors.text,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.05,
+        shadowRadius: 2,
+        elevation: 1,
+    },
 
-    }
+    loginSubmit: {
+        backgroundColor: theme.colors.secondary,
+        paddingVertical: 14,
+        paddingHorizontal: 32,
+        borderRadius: 16,
+        shadowColor: theme.colors.copperBrown,
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 4,
+        marginBottom: 16,
+    },
 
+    loginSubmitText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: '600',
+        textAlign: 'center',
+    },
+
+    footerText: {
+        marginTop: 12,
+        fontSize: 14,
+        color: theme.colors.dustyRose,
+        textAlign: 'center',
+    },
 });
