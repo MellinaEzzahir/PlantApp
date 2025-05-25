@@ -23,7 +23,7 @@ export default function SignUpScreen() {
 
     return (
         <View style={StyleSheet.screenContainer}>
-            <Text style={StyleSheet.loginTitle}>Welcome 🌱</Text>
+            <Text style={StyleSheet.loginTitle}>Welcome!</Text>
 
             <TextInput
                 style={StyleSheet.loginUsername}

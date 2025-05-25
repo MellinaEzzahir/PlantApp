@@ -1,7 +1,7 @@
 import StyleSheet from '../styles/global-stylesheet'
 import * as React from "react";
 import { View, Text, Image, Pressable, TextInput, } from "react-native";
-import { useState } from 'react';
+import { useState, useContext} from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { AuthContext } from '../auth-context';
 import { account } from '../lib/app-write'
@@ -10,18 +10,18 @@ import { account } from '../lib/app-write'
 
 export default function LoginScreen() {
     const navigation = useNavigation();
-    const { setLoggedIn } = React.useContext(AuthContext);
+    const { setIsLoggedIn } = useContext(AuthContext);
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const handleLogin = async () => {
         try {
-            await account.createEmailPasswordSession({
+            await account.createEmailPasswordSession(
                 email,
                 password,
-            });
-            setLoggedIn(true);
+            );
+            setIsLoggedIn(true);
         } catch (err) {
             alert('Login failed!' + err.message);
         }
@@ -29,7 +29,7 @@ export default function LoginScreen() {
 
     return (
         <View style={StyleSheet.screenContainer}>
-            <Text style={StyleSheet.loginTitle}>Welcome Back 🌱</Text>
+            <Text style={StyleSheet.loginTitle}>Welcome Back!</Text>
 
             <TextInput
                 style={StyleSheet.loginUsername}

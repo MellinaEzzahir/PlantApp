@@ -1,18 +1,10 @@
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+<Switch
+    trackColor={{ false: '#767577', true: '#81b0ff' }}
+    thumbColor={switchIsEnabled ? '#f5dd4b' : '#f4f3f4'}
+    ios_backgroundColor="#3e3e3e"
+    onValueChange={toggleSwitch}
+    value={switchIsEnabled}
+/>
 
-<Stack.Navigator
-    initialRouteName="Welcome"
-    screenOptions={{ headerStyle: { backgroundColor: '#FBDABB' } }}>
-    />
-<Stack.Screen
-        name="Welcome"
-        component={WelcomeScreen}
-        options={{ title: 'Home' }}
-    />
+const [switchIsEnabled, setSwitchIsEnabled] = useState(false)
+const toggleSwitch = () => setSwitchIsEnabled(previousState => !previousState);

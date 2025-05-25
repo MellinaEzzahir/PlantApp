@@ -8,7 +8,6 @@ export default function Dashboard({navigation}) {
   return (
     <View 
       style={StyleSheet.screenContainer}>
-        <Text>This is the dashboard</Text>
     </View>
   );
 }

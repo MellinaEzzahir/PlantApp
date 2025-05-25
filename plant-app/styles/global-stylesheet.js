@@ -30,6 +30,7 @@ export default StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        fontSize: 26,
     },
 
     customHeaderTitle: {
@@ -83,7 +84,7 @@ export default StyleSheet.create({
         width: '100%',
         padding: 14,
         marginBottom: 16,
-        borderRadius: 12,
+        borderRadius: 16,
         borderWidth: 1.5,
         borderColor: theme.colors.primary,
         backgroundColor: '#fff',
@@ -100,7 +101,7 @@ export default StyleSheet.create({
         width: '100%',
         padding: 14,
         marginBottom: 24,
-        borderRadius: 12,
+        borderRadius: 16,
         borderWidth: 1.5,
         borderColor: theme.colors.primary,
         backgroundColor: '#fff',
@@ -129,14 +130,14 @@ export default StyleSheet.create({
     loginSubmitText: {
         color: '#fff',
         fontSize: 16,
-        fontWeight: '600',
+        fontWeight: 'bold',
         textAlign: 'center',
     },
 
     footerText: {
         marginTop: 12,
         fontSize: 14,
-        color: theme.colors.dustyRose,
+        color: theme.colors.secondary,
         textAlign: 'center',
     },
 });
