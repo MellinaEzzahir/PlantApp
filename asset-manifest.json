@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/PlantApp/static/js/main.258a91bc.js",
-    "static/js/666.787ec348.js": "/PlantApp/static/js/666.787ec348.js",
+    "main.js": "/PlantApp/static/js/main.1918ec6f.js",
+    "static/js/27.d0f594e3.js": "/PlantApp/static/js/27.d0f594e3.js",
     "static/media/Ionicons.ttf": "/PlantApp/static/media/Ionicons.9b6b1954a5eb6efeaf11.ttf",
     "favicon.ico": "/PlantApp/favicon.ico",
     "index.html": "/PlantApp/index.html",
@@ -9,11 +9,11 @@
     "favicon-16.png": "/PlantApp/favicon-16.png",
     "manifest.json": "/PlantApp/manifest.json",
     "serve.json": "/PlantApp/serve.json",
-    "main.258a91bc.js.map": "/PlantApp/static/js/main.258a91bc.js.map",
-    "666.787ec348.js.map": "/PlantApp/static/js/666.787ec348.js.map"
+    "main.1918ec6f.js.map": "/PlantApp/static/js/main.1918ec6f.js.map",
+    "27.d0f594e3.js.map": "/PlantApp/static/js/27.d0f594e3.js.map"
   },
   "entrypoints": [
-    "static/js/666.787ec348.js",
-    "static/js/main.258a91bc.js"
+    "static/js/27.d0f594e3.js",
+    "static/js/main.1918ec6f.js"
   ]
 }
