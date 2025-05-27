@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { Text, View, Dimensions} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AuthProvider, AuthContext } from './auth-context';
@@ -19,16 +19,21 @@ import { account, client } from './lib/app-write'
 
 import CustomHeader from './components/custom-header';
 
-import theme from './styles/theme'
+import theme from './styles/theme';
+import GlobalStyles from './styles/global-stylesheet';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function MainTabs() {
+    const screenWidth = Dimensions.get('window').width;
+    const isPhoneSize = screenWidth < 600;
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-
+        tabBarStyle: {
+          height: 60,
+        },
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
@@ -43,6 +48,9 @@ function MainTabs() {
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarLabelStyle: {
+          fontSize: isPhoneSize ? 14 : 20,
         },
         tabBarPressColor: 'transparent',
         tabBarActiveTintColor: theme.colors.secondary,

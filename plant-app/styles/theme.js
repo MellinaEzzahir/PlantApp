@@ -8,6 +8,7 @@ const theme = {
         dustyRose: '#C48793',
         yellow: '#FCE38A',
         text: '#333333',
+        error: 'rgb(190, 75, 64)',
     }
 }
 

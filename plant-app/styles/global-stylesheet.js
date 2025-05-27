@@ -1,5 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import theme from './theme';
+
+const screenWidth = Dimensions.get('window').width;
+const isPhoneSize = screenWidth < 600;
 
 export default StyleSheet.create({
     screenContainer: {
@@ -15,11 +18,6 @@ export default StyleSheet.create({
         height: 60,
         borderTopWidth: 2,
         borderTopColor: 'lightgray',
-    },
-
-    tabBarLabel: {
-        fontSize: 12,
-        fontWeight: 'bold',
     },
 
     customHeader: {
@@ -81,7 +79,7 @@ export default StyleSheet.create({
     },
 
     loginUsername: {
-        width: '100%',
+        width: isPhoneSize ? '100%' : 500,
         padding: 14,
         marginBottom: 16,
         borderRadius: 16,
@@ -98,7 +96,7 @@ export default StyleSheet.create({
     },
 
     loginPassword: {
-        width: '100%',
+        width: isPhoneSize ? '100%' : 500,
         padding: 14,
         marginBottom: 24,
         borderRadius: 16,
@@ -139,5 +137,25 @@ export default StyleSheet.create({
         fontSize: 14,
         color: theme.colors.secondary,
         textAlign: 'center',
+    },
+
+    backText: {
+        marginTop: 12,
+        fontSize: 14,
+        color: theme.colors.secondary,
+        textAlign: 'center',
+    },
+
+    backTextPress: {
+        position: 'absolute',
+        top: 10,
+        left: 10,
+    },
+
+    wrongSignUpInfo: {
+        color: '#d9534f',
+        marginBottom: 12,
+        marginLeft: 4,
+        fontSize: 14,
     },
 });
