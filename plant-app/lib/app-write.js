@@ -1,8 +1,9 @@
-import { Client, Account, ID } from 'appwrite';
+import { Client, Account, ID, Databases } from 'appwrite';
 
-export const client = new Client()
+const client = new Client()
     .setEndpoint('https://fra.cloud.appwrite.io/v1')
     .setProject('plantapp')
 
-export const account = new Account(client)
-export { ID };
+const database = new Databases(client);
+const account = new Account(client)
+export { ID, client, database, account };

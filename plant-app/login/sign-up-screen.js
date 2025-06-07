@@ -1,9 +1,10 @@
 import StyleSheet from '../styles/global-stylesheet';
 import * as React from "react";
 import { View, Text, Pressable, TextInput, Alert } from 'react-native';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { account, ID } from '../lib/app-write';
+import { AuthContext } from '../auth-context';
 
 export default function SignUpScreen() {
     const navigation = useNavigation();
@@ -21,6 +22,8 @@ export default function SignUpScreen() {
     const [validPassword, setValidPassword] = useState(false);
 
     const [validLogin, setValidLogin] = useState(false);
+
+    const { setIsLoggedIn } = useContext(AuthContext);
 
     useEffect(() => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -53,18 +56,41 @@ export default function SignUpScreen() {
     }, [password]);
 
     useEffect(() => {
-        const isEverythingValid = validEmail && validPassword;
+        if (name.trim() === '') {
+            setNameError('Name cannot be empty.');
+        } else {
+            setNameError('');
+        }
+    }, [name]);
+
+    useEffect(() => {
+        const isEverythingValid = validEmail && validPassword && name.trim() !== '';
         setValidLogin(isEverythingValid);
-    }, [validEmail, , validPassword]);
+    }, [validEmail, validPassword]);
 
     const handleSignUp = async () => {
         if (validLogin) {
             try {
                 await account.create(ID.unique(), email, password, name);
+                await account.createEmailSession(email, password);
                 Alert.alert("Success", "Account created!");
-                navigation.replace('Preferences');
+                setIsLoggedIn(true);
             } catch (error) {
-                Alert.alert("Error", error.message || "Something went wrong.");
+                if (error.code === 409) {
+                    // 👇 If account already exists, try logging in instead:
+                    try {
+                        await account.createEmailSession(email, password);
+                        Alert.alert("Welcome back!");
+                        setIsLoggedIn(true);
+                    } catch (loginError) {
+                        Alert.alert(
+                            "Email already in use",
+                            "That email is already registered. Please check your password or go to the login screen."
+                        );
+                    }
+                } else {
+                    Alert.alert("Error", error.message || "Something went wrong.");
+                }
             }
         } else {
             Alert.alert("Invalid", "Please fix the form before signing up.");
