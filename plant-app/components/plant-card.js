@@ -1,5 +1,4 @@
 import StyleSheet from '../styles/global-stylesheet'
-import * as React from "react";
 import { View, Text, Pressable } from "react-native";
 
 export default function PlantCard({ plant, onDelete }) {

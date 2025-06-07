@@ -11,25 +11,25 @@ export default function MyPlants() {
     const [modalVisible, setModalVisible] = React.useState(false);
 
     React.useEffect(() => {
-        const fetchPlants = async () => {
-            try {
-                const user = await account.get();
-
-                const response = await database.listDocuments(
-                    'database',
-                    'plants',
-                    [Query.equal('userId', user.$id)]
-                );
-                setPlants(response.documents);
-            } catch (error) {
-                console.error("Error fetching plants:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
         fetchPlants();
     }, []);
+
+    const fetchPlants = async () => {
+        try {
+            const user = await account.get();
+
+            const response = await database.listDocuments(
+                'database',
+                'plants',
+                [Query.equal('userId', user.$id)]
+            );
+            setPlants(response.documents);
+        } catch (error) {
+            console.error("Error fetching plants:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const [newPlant, setNewPlant] = React.useState({
         name: '',
@@ -75,6 +75,15 @@ export default function MyPlants() {
         }
     };
 
+    const handleDeletePlant = async (id) => {
+        try {
+            const result = await database.deleteDocument("database", "plants", id)
+            fetchPlants();
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     return (
         <View style={styles.screenContainer}>
             <Text style={styles.loginTitle}>My Plants</Text>
@@ -86,7 +95,11 @@ export default function MyPlants() {
                     <FlatList
                         data={plants}
                         keyExtractor={(plant) => plant.$id}
-                        renderItem={({ item }) => <PlantCard plant={item} />}
+                        renderItem={({ item }) =>
+                            <PlantCard
+                                plant={item}
+                                onDelete={handleDeletePlant}
+                            />}
                         style={styles.myPlants}
                     />
 

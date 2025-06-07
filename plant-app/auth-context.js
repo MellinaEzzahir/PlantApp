@@ -7,11 +7,9 @@ export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(null);
 
     useEffect(() => {
-        console.log('App just opened!');
         const checkLoggedIn = async () => {
             try {
                 const user = await account.get();
-                console.log('User is logged in:' + user)
                 setIsLoggedIn(true)
             } catch (error) {
                 console.log('User is not logged in:' + error)
