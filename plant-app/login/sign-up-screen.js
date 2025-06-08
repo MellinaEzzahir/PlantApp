@@ -56,12 +56,14 @@ export default function SignUpScreen() {
     }, [password]);
 
     useEffect(() => {
-        if (name.trim() === '') {
-            setNameError('Name cannot be empty.');
-        } else {
+        if((password !== '' || email !== '' )&& name === ''){
+            setNameError('Name cannot be empty');
+            setValidName(false);
+        }else {
             setNameError('');
+            setValidName(true);
         }
-    }, [name]);
+    }, [password, email, name]);
 
     useEffect(() => {
         const isEverythingValid = validEmail && validPassword && name.trim() !== '';
@@ -77,7 +79,6 @@ export default function SignUpScreen() {
                 setIsLoggedIn(true);
             } catch (error) {
                 if (error.code === 409) {
-                    // 👇 If account already exists, try logging in instead:
                     try {
                         await account.createEmailSession(email, password);
                         Alert.alert("Welcome back!");

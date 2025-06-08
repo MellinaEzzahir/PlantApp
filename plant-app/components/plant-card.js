@@ -1,7 +1,11 @@
-import StyleSheet from '../styles/global-stylesheet'
 import { View, Text, Pressable } from "react-native";
+import { useContext } from "react";
+import { AuthContext } from "../auth-context";
+import { createStyles } from "../styles/global-stylesheet";
 
 export default function PlantCard({ plant, onDelete }) {
+    const { theme } = useContext(AuthContext);
+    const StyleSheet = createStyles(theme);
     const sunEmoji = () => {
         switch (plant.sunlight) {
             case 1: return "☀️☁️☁️☁️☁️";

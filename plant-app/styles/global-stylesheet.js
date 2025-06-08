@@ -1,10 +1,10 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import theme from './theme';
+import { useContext } from 'react';
 
 const screenWidth = Dimensions.get('window').width;
 const isPhoneSize = screenWidth < 600;
 
-export default StyleSheet.create({
+export const createStyles = (theme) => StyleSheet.create({
     screenContainer: {
         flex: 1,
         margin: 40,
@@ -48,10 +48,7 @@ export default StyleSheet.create({
         backgroundColor: theme.colors.primary,
         borderRadius: 16,
         padding: 16,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
+        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
         elevation: 2,
     },
 
@@ -88,10 +85,7 @@ export default StyleSheet.create({
         backgroundColor: '#fff',
         fontSize: 16,
         color: theme.colors.text,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 0.05,
-        shadowRadius: 2,
+        boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.05)',
         elevation: 1,
     },
 
@@ -105,10 +99,7 @@ export default StyleSheet.create({
         backgroundColor: '#fff',
         fontSize: 16,
         color: theme.colors.text,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 0.05,
-        shadowRadius: 2,
+        boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.05)',
         elevation: 1,
     },
 
@@ -117,10 +108,7 @@ export default StyleSheet.create({
         paddingVertical: 14,
         paddingHorizontal: 32,
         borderRadius: 16,
-        shadowColor: theme.colors.copperBrown,
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.2,
-        shadowRadius: 4,
+        boxShadow: '0px 3px 4px theme.colors.copperBrownShadow',
         elevation: 4,
         marginBottom: 16,
     },

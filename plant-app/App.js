@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Dimensions} from 'react-native';
+import { Text, View, Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AuthProvider, AuthContext } from './auth-context';
@@ -15,19 +15,19 @@ import Calendar from './screens/calendar';
 import LoginScreen from './login/login-screen';
 import SignUpScreen from './login/sign-up-screen';
 
-import { account, client } from './lib/app-write'
 
 import CustomHeader from './components/custom-header';
+import { createStyles } from './styles/global-stylesheet';
 
-import theme from './styles/theme';
-import GlobalStyles from './styles/global-stylesheet';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function MainTabs() {
-    const screenWidth = Dimensions.get('window').width;
-    const isPhoneSize = screenWidth < 600;
+  const { theme } = useContext(AuthContext);
+  const StyleSheet = createStyles(theme);
+  const screenWidth = Dimensions.get('window').width;
+  const isPhoneSize = screenWidth < 600;
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({

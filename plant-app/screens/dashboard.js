@@ -1,12 +1,14 @@
-import StyleSheet from '../styles/global-stylesheet'
-import * as React from "react";
-import { View, Text, Image, Pressable } from "react-native";
+import { View } from "react-native";
+import { useContext } from "react";
+import { AuthContext } from "../auth-context";
+import { createStyles } from "../styles/global-stylesheet";
 
-// import local components here
+export default function Dashboard({ navigation }) {
+  const { theme } = useContext(AuthContext);
+  const StyleSheet = createStyles(theme);
 
-export default function Dashboard({navigation}) {
   return (
-    <View 
+    <View
       style={StyleSheet.screenContainer}>
     </View>
   );

@@ -2,13 +2,18 @@ import * as React from "react";
 import { View, Text, TextInput, Button, FlatList, Modal, TouchableOpacity } from "react-native";
 import { database, account } from '../lib/app-write';
 import { ID, Query } from 'appwrite';
-import styles from '../styles/global-stylesheet';
 import PlantCard from "../components/plant-card";
+import { useContext } from "react";
+import { AuthContext } from "../auth-context";
+import { createStyles } from "../styles/global-stylesheet";
 
 export default function MyPlants() {
     const [plants, setPlants] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
     const [modalVisible, setModalVisible] = React.useState(false);
+
+    const { theme } = useContext(AuthContext);
+    const StyleSheet = createStyles(theme);
 
     React.useEffect(() => {
         fetchPlants();
@@ -85,8 +90,8 @@ export default function MyPlants() {
     }
 
     return (
-        <View style={styles.screenContainer}>
-            <Text style={styles.loginTitle}>My Plants</Text>
+        <View style={StyleSheet.screenContainer}>
+            <Text style={StyleSheet.loginTitle}>My Plants</Text>
 
             {loading ? (
                 <Text>Loading...</Text>
@@ -100,14 +105,14 @@ export default function MyPlants() {
                                 plant={item}
                                 onDelete={handleDeletePlant}
                             />}
-                        style={styles.myPlants}
+                        style={StyleSheet.myPlants}
                     />
 
                     <View style={{ width: '95%', marginBottom: 16 }}>
                         <Button
                             title="Add a Plant"
                             onPress={() => setModalVisible(true)}
-                            color={styles.customHeader.backgroundColor} // keeps the button colour consistent with header
+                            color={StyleSheet.customHeader.backgroundColor} // keeps the button colour consistent with header
                         />
                     </View>
 
@@ -123,8 +128,8 @@ export default function MyPlants() {
                             backgroundColor: 'rgba(0,0,0,0.5)',
                             padding: 20,
                         }}>
-                            <View style={[styles.plantCard, { backgroundColor: 'white' }]}>
-                                <Text style={{ fontSize: 20, marginBottom: 10, fontWeight: 'bold', color: styles.customHeader.backgroundColor }}>
+                            <View style={[StyleSheet.plantCard, { backgroundColor: 'white' }]}>
+                                <Text style={{ fontSize: 20, marginBottom: 10, fontWeight: 'bold', color: StyleSheet.customHeader.backgroundColor }}>
                                     Add a Plant
                                 </Text>
 
@@ -132,38 +137,38 @@ export default function MyPlants() {
                                     placeholder="Plant Name *"
                                     value={newPlant.name}
                                     onChangeText={(text) => setNewPlant({ ...newPlant, name: text })}
-                                    style={styles.loginUsername}
+                                    style={StyleSheet.loginUsername}
                                 />
                                 <TextInput
                                     placeholder="Type (e.g., indoor, outdoor) *"
                                     value={newPlant.type}
                                     onChangeText={(text) => setNewPlant({ ...newPlant, type: text })}
-                                    style={styles.loginUsername}
+                                    style={StyleSheet.loginUsername}
                                 />
                                 <TextInput
                                     placeholder="Watering Frequency (days) *"
                                     value={newPlant.wateringFrequency}
                                     onChangeText={(text) => setNewPlant({ ...newPlant, wateringFrequency: text })}
                                     keyboardType="numeric"
-                                    style={styles.loginUsername}
+                                    style={StyleSheet.loginUsername}
                                 />
                                 <TextInput
                                     placeholder="Sunlight (1-5) *"
                                     value={newPlant.sunlight}
                                     onChangeText={(text) => setNewPlant({ ...newPlant, sunlight: text })}
                                     keyboardType="numeric"
-                                    style={styles.loginUsername}
+                                    style={StyleSheet.loginUsername}
                                 />
                                 <TextInput
                                     placeholder="Notes (optional)"
                                     value={newPlant.notes}
                                     onChangeText={(text) => setNewPlant({ ...newPlant, notes: text })}
-                                    style={styles.loginUsername}
+                                    style={StyleSheet.loginUsername}
                                 />
 
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                     <Button title="Cancel" onPress={() => setModalVisible(false)} color="#888" />
-                                    <Button title="Add Plant" onPress={handleAddPlant} color={styles.customHeader.backgroundColor} />
+                                    <Button title="Add Plant" onPress={handleAddPlant} color={StyleSheet.customHeader.backgroundColor} />
                                 </View>
                             </View>
                         </View>

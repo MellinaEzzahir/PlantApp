@@ -1,10 +1,12 @@
 import React, { createContext, useState, useEffect } from 'react'
 import { account } from './lib/app-write'
+import { lightTheme, darkTheme } from './styles/theme';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(null);
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
         const checkLoggedIn = async () => {
@@ -19,8 +21,17 @@ export const AuthProvider = ({ children }) => {
         checkLoggedIn();
     }, []);
 
+    const toggleTheme = () => setIsDarkMode(prev => !prev);
+    const theme = isDarkMode ? darkTheme : lightTheme;
+
     return (
-        <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+        <AuthContext.Provider value={{
+            isLoggedIn,
+            setIsLoggedIn,
+            isDarkMode,
+            toggleTheme,
+            theme,
+        }}>
             {children}
         </AuthContext.Provider>
     );
