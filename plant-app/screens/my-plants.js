@@ -80,11 +80,20 @@ export default function MyPlants() {
         }
     };
 
-    const handleDeletePlant = async (id) => {
+    const handleDeletePlant = async (id, newPlant) => {
         try {
             const result = await database.deleteDocument("database", "plants", id)
             fetchPlants();
         } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const handleEditPlant = async (id) => {
+        try{
+            const result = await database.updateDocument("da")
+            fetchPlants
+        }catch (err){
             console.log(err)
         }
     }
@@ -104,6 +113,7 @@ export default function MyPlants() {
                             <PlantCard
                                 plant={item}
                                 onDelete={handleDeletePlant}
+                                onEdit={handleEditPlant}
                             />}
                         style={StyleSheet.myPlants}
                     />

@@ -1,4 +1,4 @@
-import StyleSheet from '../styles/global-stylesheet';
+import { createStyles } from "../styles/global-stylesheet";
 import * as React from "react";
 import { View, Text, Pressable, TextInput, Alert } from 'react-native';
 import { useState, useEffect, useContext } from 'react';
@@ -7,6 +7,9 @@ import { account, ID } from '../lib/app-write';
 import { AuthContext } from '../auth-context';
 
 export default function SignUpScreen() {
+    const { theme } = useContext(AuthContext);
+    const StyleSheet = createStyles(theme);
+
     const navigation = useNavigation();
 
     const [email, setEmail] = useState('');
@@ -56,10 +59,10 @@ export default function SignUpScreen() {
     }, [password]);
 
     useEffect(() => {
-        if((password !== '' || email !== '' )&& name === ''){
+        if ((password !== '' || email !== '') && name === '') {
             setNameError('Name cannot be empty');
             setValidName(false);
-        }else {
+        } else {
             setNameError('');
             setValidName(true);
         }

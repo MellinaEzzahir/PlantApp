@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../auth-context";
 import { createStyles } from "../styles/global-stylesheet";
 
-export default function PlantCard({ plant, onDelete }) {
+export default function PlantCard({ plant, onDelete, onEdit }) {
     const { theme } = useContext(AuthContext);
     const StyleSheet = createStyles(theme);
     const sunEmoji = () => {
@@ -35,6 +35,9 @@ export default function PlantCard({ plant, onDelete }) {
             <Text style={StyleSheet.plantCardNotes}>{plant.notes}</Text>
             <Pressable onPress={() => onDelete(plant.$id)}>
                 <Text>Delete</Text>
+            </Pressable>
+            <Pressable onPress={() => onEdit(plant.$id,  )}>
+                <Text>Edit</Text>
             </Pressable>
         </View>
     );

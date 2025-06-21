@@ -146,4 +146,12 @@ export const createStyles = (theme) => StyleSheet.create({
         marginLeft: 4,
         fontSize: 14,
     },
+
+    demoAccountLoginLink: {
+        marginTop: 12,
+        marginBottom: 12,
+        fontSize: 15,
+        color: theme.colors.secondary,
+        textAlign: 'center',
+    }
 });

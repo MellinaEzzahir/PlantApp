@@ -1,7 +1,7 @@
-import StyleSheet from '../styles/global-stylesheet'
+import { createStyles } from "../styles/global-stylesheet";
 import * as React from "react";
 import { View, Text, Image, Pressable, TextInput, } from "react-native";
-import { useState, useContext} from 'react';
+import { useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { AuthContext } from '../auth-context';
 import { account } from '../lib/app-write'
@@ -9,6 +9,8 @@ import { account } from '../lib/app-write'
 // import local components here
 
 export default function LoginScreen() {
+    const { theme } = useContext(AuthContext);
+    const StyleSheet = createStyles(theme);
     const navigation = useNavigation();
     const { setIsLoggedIn } = useContext(AuthContext);
 
@@ -23,13 +25,28 @@ export default function LoginScreen() {
             );
             setIsLoggedIn(true);
         } catch (err) {
-            alert('Login failed!' + err.message);
+            alert('Login failed! ' + err.message);
+        }
+    };
+
+    const handleDemoLogin = async () => {
+        try {
+            await account.createEmailPasswordSession(
+                'demo@demo.com',
+                'demodemo'
+            );
+            setIsLoggedIn(true);
+        } catch (err) {
+            alert('Login failed! ' + err.message);
         }
     };
 
     return (
         <View style={StyleSheet.screenContainer}>
             <Text style={StyleSheet.loginTitle}>Welcome Back!</Text>
+            <Pressable onPress={handleDemoLogin}>
+                <Text style={StyleSheet.demoAccountLoginLink}>Use a demo account</Text>
+            </Pressable>
 
             <TextInput
                 style={StyleSheet.loginUsername}
