@@ -1,5 +1,4 @@
 import { createStyles } from "../styles/global-stylesheet";
-import * as React from "react";
 import { View, Text, Pressable, TextInput, Alert } from 'react-native';
 import { useState, useEffect, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';

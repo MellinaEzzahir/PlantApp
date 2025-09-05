@@ -1,12 +1,10 @@
 import { createStyles } from "../styles/global-stylesheet";
-import * as React from "react";
-import { View, Text, Image, Pressable, TextInput, } from "react-native";
+import { View, Text, Pressable, TextInput, Alert } from "react-native";
 import { useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { AuthContext } from '../auth-context';
 import { account } from '../lib/app-write'
 
-// import local components here
 
 export default function LoginScreen() {
     const { theme } = useContext(AuthContext);
