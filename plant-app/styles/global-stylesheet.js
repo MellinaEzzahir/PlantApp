@@ -3,6 +3,7 @@ import { useContext } from 'react';
 
 const screenWidth = Dimensions.get('window').width;
 const isPhoneSize = screenWidth < 600;
+console.log(isPhoneSize)
 
 export const createStyles = (theme) => StyleSheet.create({
     screenContainer: {
@@ -153,5 +154,15 @@ export const createStyles = (theme) => StyleSheet.create({
         fontSize: 15,
         color: theme.colors.secondary,
         textAlign: 'center',
+    },
+    plantModal: {
+        width: isPhoneSize ? '95%' : 530,
+        marginBottom: 12,
+        marginLeft: 10,
+        backgroundColor: theme.colors.primary,
+        borderRadius: 16,
+        padding: 16,
+        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+        elevation: 2,
     }
 });

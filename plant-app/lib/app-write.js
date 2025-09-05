@@ -1,7 +1,7 @@
 import { Client, Account, ID, Databases } from 'appwrite';
 
 const client = new Client()
-    .setEndpoint('https://fra.cloud.appwrite.io/v1')
+    .setEndpoint('https://fra.coud.appwrite.io/v1')
     .setProject('plantapp')
 
 const database = new Databases(client);

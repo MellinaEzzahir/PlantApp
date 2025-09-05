@@ -138,7 +138,7 @@ export default function MyPlants() {
                             backgroundColor: 'rgba(0,0,0,0.5)',
                             padding: 20,
                         }}>
-                            <View style={[StyleSheet.plantCard, { backgroundColor: 'white' }]}>
+                            <View style={[StyleSheet.plantModal, { backgroundColor: 'white' }]}>
                                 <Text style={{ fontSize: 20, marginBottom: 10, fontWeight: 'bold', color: StyleSheet.customHeader.backgroundColor }}>
                                     Add a Plant
                                 </Text>
