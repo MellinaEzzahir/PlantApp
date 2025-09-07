@@ -140,7 +140,7 @@ export default function SignUpScreen() {
             />
             {passwordError ? <Text style={StyleSheet.wrongSignUpInfo}>{passwordError}</Text> : null}
 
-            <Pressable 
+            <Pressable
                 style={[StyleSheet.loginSubmit, { backgroundColor: validLogin ? '#4C5C3A' : '#8DB580' }]}
                 onPress={handleSignUp}
             >
