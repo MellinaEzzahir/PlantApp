@@ -17,10 +17,10 @@ export default function LoginScreen() {
 
     const handleLogin = async () => {
         try {
-            await account.createEmailPasswordSession(
+            const result = account.createEmailPasswordSession({
                 email,
                 password,
-            );
+            });
             setIsLoggedIn(true);
         } catch (err) {
             alert('Login failed! ' + err.message);
@@ -29,7 +29,7 @@ export default function LoginScreen() {
 
     const handleDemoLogin = async () => {
         try {
-            await account.createEmailPasswordSession(
+            const result = account.createEmailPasswordSession(
                 'demo@demo.com',
                 'demodemo'
             );
