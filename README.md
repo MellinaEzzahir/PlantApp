@@ -7,7 +7,7 @@ I made my project because during the summer holidays my dad always forgets to wa
 
 The project is made in React native with expo, and the database part is appwrite.
 
-The hardest part was learning how to link the backend because I've never done it before. 
+The hardest part was learning how to link the backend because I've never done it before, especially doing the login. 
 The easiest/funnest part was the styling and I spent way too much time choosing colours.
 
 Website:
